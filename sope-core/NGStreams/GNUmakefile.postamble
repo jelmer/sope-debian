@@ -1,0 +1,16 @@
+# compilation settings
+
+before-all :: config.status
+
+after-distclean::
+	rm -f config.cache config.log config.status config.h config.mak
+
+config.h config.status : config.h.in configure
+	./configure
+
+ifneq ($(GNUSTEP_TARGET_OS),cygwin32)
+configure : configure.in
+	#autoconf configure.in > configure
+	echo "configure.in seems to have changed, you might want to rerun autoconf"
+	chmod +x configure
+endif

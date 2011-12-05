@@ -1,0 +1,11 @@
+# compilation settings
+
+# Parameters for WOxBuilder lookups
+
+ifneq ($(FHS_INSTALL_ROOT),)
+ADDITIONAL_CPPFLAGS += -DFHS_INSTALL_ROOT=\@\"$(FHS_INSTALL_ROOT)\"
+endif
+
+ifneq ($(CGS_LIBDIR_NAME),)
+ADDITIONAL_CPPFLAGS += -DCGS_LIBDIR_NAME=\@\"$(CGS_LIBDIR_NAME)\"
+endif
